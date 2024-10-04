@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/get_started_page.dart';
+import 'package:flutter_application_1/pageNews.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Color(0xFFA66E38),
+        scaffoldBackgroundColor: Color(0xFFA5B68D),
       ),
-      home: const GetStartedPage(),
+      // home: const GetStartedPage(),
+      home: const Pagenews(),
     );
   }
 }
