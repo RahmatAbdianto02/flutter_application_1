@@ -1,7 +1,66 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/get_started_page.dart';
 
-class Pagenews extends StatelessWidget {
-  const Pagenews({super.key});
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: BottomNavBar(),
+    );
+  }
+}
+
+class BottomNavBar extends StatefulWidget {
+  @override
+  _BottomNavBarState createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _currentIndex = 0;
+
+  final List<Widget> _children = [
+    PageNews(), // Menampilkan halaman berita
+    SearchPage(),
+    ProfilePage(),
+  ];
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _children[_currentIndex], // Menampilkan halaman berdasarkan index
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: onTabTapped, // Mengubah halaman ketika tab ditekan
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.article),
+            label: 'News',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          )
+        ],
+      ),
+    );
+  }
+}
+
+// Halaman PageNews
+class PageNews extends StatelessWidget {
+  const PageNews({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +107,7 @@ class Pagenews extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  'Lastest News',
+                  'Latest News',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -59,13 +118,12 @@ class Pagenews extends StatelessWidget {
             Expanded(
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 1, // Satu kolom
-                  crossAxisSpacing: 10.0, // Jarak antar kolom
-                  mainAxisSpacing: 10.0, // Jarak antar baris
-                  childAspectRatio:
-                      3, // Rasio aspek untuk membuat item lebih lebar
+                  crossAxisCount: 1,
+                  crossAxisSpacing: 10.0,
+                  mainAxisSpacing: 10.0,
+                  childAspectRatio: 3,
                 ),
-                itemCount: newsData.length, // Jumlah item
+                itemCount: newsData.length,
                 itemBuilder: (context, index) {
                   final item = newsData[index];
                   return Container(
@@ -117,6 +175,49 @@ class Pagenews extends StatelessWidget {
                   );
                 },
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// Halaman Search
+class SearchPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Search Page'),
+    );
+  }
+}
+
+// Halaman Profile
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Profile Page',
+              style: TextStyle(fontSize: 20),
+            ),
+            SizedBox(height: 20), // Spasi antara teks dan button
+            ElevatedButton(
+              onPressed: () {
+                // Pindah ke GetStartedPage
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GetStartedPage(),
+                  ),
+                );
+              },
+              child: Text('Log Out'),
             ),
           ],
         ),
