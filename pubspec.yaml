@@ -64,6 +64,15 @@ flutter:
     - assets/Swipe News.png
     - assets/NewsImage.png
     - assets/NewsImage2.png
+    - assets/Menu Icon1.png
+    - assets/icon2.png
+    - assets/icon3.png
+    - assets/icon4.png
+    - assets/icon5.png
+    - assets/icon6.png
+    - assets/icon7.png
+    - assets/icon8.png
+    
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
