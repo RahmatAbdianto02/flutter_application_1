@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/settings/SettingPage.dart';
+import 'package:flutter_application_1/user/page/user_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
             ),
         // home: const GetStartedPage(),
         // home: GetStartedPage(),
-        home: SettingPage());
+        home: UserPage());
   }
 }
 
