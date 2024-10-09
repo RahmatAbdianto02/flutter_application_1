@@ -20,6 +20,8 @@ class UserModel {
       email: json['email'],
       avatar: json['avatar']
       );
+
+   String get name => '$firstName $lastName';
 }
 
 
