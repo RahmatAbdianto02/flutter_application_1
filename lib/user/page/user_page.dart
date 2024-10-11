@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/controller/user_controller.dart';
 import 'package:flutter_application_1/user/page/detail_user_page.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class UserPage extends StatelessWidget {
   const UserPage({super.key});

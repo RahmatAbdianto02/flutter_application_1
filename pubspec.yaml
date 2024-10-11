@@ -38,6 +38,8 @@ dependencies:
   dio: ^5.7.0
   google_fonts: ^6.2.1
   get: ^4.6.6
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +77,9 @@ flutter:
     - assets/icon6.png
     - assets/icon7.png
     - assets/icon8.png
+    - assets/deal.png
+    - assets/google icon 1.png
+    - assets/image_news_app.png
     
     # - images/a_dot_ham.jpeg
 
