@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_application_1/login%20page/login_page.dart';
+import 'package:flutter_application_1/routes/app_routes_named.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class RegisterPage extends StatelessWidget {
-   RegisterPage({super.key});
+  RegisterPage({super.key});
 
   // Inisialisasi FirebaseAuth
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -13,7 +16,8 @@ class RegisterPage extends StatelessWidget {
     // Controller untuk mengambil nilai dari TextFormField
     final TextEditingController emailController = TextEditingController();
     final TextEditingController passwordController = TextEditingController();
-    final TextEditingController confirmPasswordController = TextEditingController();
+    final TextEditingController confirmPasswordController =
+        TextEditingController();
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -58,7 +62,8 @@ class RegisterPage extends StatelessWidget {
                     backgroundColor: Color(0xff3498Db)),
                 onPressed: () async {
                   // Proses registrasi
-                  if (passwordController.text == confirmPasswordController.text) {
+                  if (passwordController.text ==
+                      confirmPasswordController.text) {
                     User? user = await createUserWithEmailAndPassword(
                       email: emailController.text,
                       password: passwordController.text,
@@ -66,10 +71,12 @@ class RegisterPage extends StatelessWidget {
                     );
                     if (user != null) {
                       // Registrasi berhasil, lanjutkan ke halaman berikutnya
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => LoginPage())); // Ganti dengan halaman yang sesuai
+                      // Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) =>
+                      //             LoginPage())); // Ganti dengan halaman yang sesuai
+                      Get.toNamed(AppRoutesNamed.LoginPage);
                     }
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -123,15 +130,19 @@ class RegisterPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                
-                Text('Sudah punya akun? silahkan '),
-                Text(
-                  'Masuk',
-                  style: TextStyle(color: Color(0xff3498Db)),
+                Text('Sudah punya akun ? silahkan masuk'),
+                InkWell(
+                  onTap: () {
+                    // Get.to(() => LoginPage());
+                    Get.toNamed(AppRoutesNamed.LoginPage);
+                  },
+                  child: Text(
+                    'Masuk',
+                    style: TextStyle(color: Color(0xff3498Db)),
+                  ),
                 ),
-                
               ],
-            )
+            ),
           ],
         ),
       )),
@@ -184,8 +195,8 @@ class CustomTextFormField extends StatelessWidget {
         obscureText: isObscured,
         decoration: InputDecoration(
           label: Text(label),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.purple)),
+          border:
+              OutlineInputBorder(borderSide: BorderSide(color: Colors.purple)),
         ),
       ),
     );

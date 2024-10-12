@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/get_started_page.dart';
+import 'package:flutter_application_1/settings/SettingPage.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 void main() => runApp(MyApp());
 
@@ -84,8 +87,10 @@ class PageNews extends StatelessWidget {
         centerTitle: true,
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.menu),
-            onPressed: () {},
+            icon: const Icon(Icons.settings),
+            onPressed: () {
+              Get.to(() => SettingPage());
+            },
           )
         ],
       ),

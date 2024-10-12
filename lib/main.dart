@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/login%20page/login_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application_1/register%20page/register_page.dart';
+import 'package:flutter_application_1/routes/app_routes.dart';
 import 'package:get/get.dart';
 
 void main() async {
@@ -16,12 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: AppRoutes.routes,
         theme: ThemeData(
             // scaffoldBackgroundColor: Color(0xFFA5B68D),
             ),
         // home: const GetStartedPage(),
         // home: GetStartedPage(),
-        home: RegisterPage());
+       );
   }
 }
 

@@ -150,7 +150,9 @@ class LoginPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Implementasi login dengan Google
-                      Get.to(() => PageNews()); // Ganti sesuai kebutuhanmu
+                      // Get.to(() => PageNews()); //
+                      //
+                      Get.toNamed('/page-dua');
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
