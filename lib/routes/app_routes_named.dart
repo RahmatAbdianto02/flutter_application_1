@@ -1,10 +1,29 @@
-import 'package:flutter_application_1/login%20page/login_page.dart';
-import 'package:flutter_application_1/register%20page/register_page.dart';
-import 'package:flutter_application_1/settings/SettingPage.dart';
+// class AppRoutesNamed {
+//   static const RegisterPage = '/';
+//   static const LoginPage = '/page-dua';
+//   // static const HomePage = '/page-tiga';
+//   // static const HomePage = '/home';
+//   static const HomePage = '/HomePage';
+
+//   static const SettingPage = '/page-empat';
+
+// }
+// class AppRoutesNamed {
+//   static const RegisterPage = '/';
+//   static const LoginPage = '/page-dua';
+//   // static const HomePage = '/page-tiga';
+//   // static const HomePage = '/home';
+//   static const HomePage = '/HomePage';
+//   static const PageGempa = '/Pagegempa';
+//   static const SettingPage = '/page-empat';
+// }
+
 
 class AppRoutesNamed {
+  static const PageStarted = '/';
   static const RegisterPage = '/';
   static const LoginPage = '/page-dua';
-  static const PageNews = '/page-tiga';
-  static const SettingPage = '/page-empat';
+  static const HomePage = '/HomePage';
+  static const PageGempa = '/Pagegempa';
+  // static const SettingPage = '/page-empat';
 }

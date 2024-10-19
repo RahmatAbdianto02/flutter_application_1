@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pageNews.dart';
-import 'package:flutter_application_1/service%20auth/auth_service.dart';
+import 'package:flutter_application_1/routes/app_routes_named.dart';
+import 'package:flutter_application_1/service auth/auth_service.dart';
 import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
@@ -99,8 +99,10 @@ class LoginPage extends StatelessWidget {
                           password: password,
                         );
 
+                        // Setelah login berhasil
                         if (user != null) {
-                          Get.to(() => PageNews());
+                          Get.offAllNamed(AppRoutesNamed
+                              .HomePage); // Mengarahkan ke HomePage
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
@@ -150,9 +152,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     onPressed: () {
                       // Implementasi login dengan Google
-                      // Get.to(() => PageNews()); //
-                      //
-                      Get.toNamed('/page-dua');
+                      // Mengarahkan pengguna ke PageGempa setelah login
+                      Get.toNamed(AppRoutesNamed.PageGempa);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

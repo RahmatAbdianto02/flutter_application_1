@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_application_1/login%20page/login_page.dart';
+
 import 'package:flutter_application_1/routes/app_routes_named.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
