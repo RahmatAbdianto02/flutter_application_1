@@ -1,63 +1,7 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_application_1/Page%20gempa/PageGempaTerkini.dart';
-// import 'package:flutter_application_1/Page%20gempa/page_gempa.dart';
-// import 'package:google_fonts/google_fonts.dart';
-
-
-// class HomePage extends StatefulWidget {
-//   @override
-//   _HomePageState createState() => _HomePageState();
-// }
-
-// class _HomePageState extends State<HomePage> {
-//   int _currentIndex = 0;
-
-//   final List<Widget> _pages = [
-//     const PageGempa(), // Halaman Data Gempa
-//     const PageGempaTerkini(), // Halaman Gempa Terkini
-//   ];
-
-//   @override
-//   Widget build(BuildContext context) {
-//     print('HomePage loaded');
-
-//     return Scaffold(
-//       backgroundColor: const Color(0xFFF6EFBD),
-
-//       appBar: AppBar(
-//         title: Text(
-//           'Informasi Gempa',
-//           style: GoogleFonts.arimo(fontSize: 25),
-//         ),
-//         centerTitle: true,
-//       ),
-//       body: _pages[_currentIndex], // Menampilkan halaman sesuai index
-//       bottomNavigationBar: BottomNavigationBar(
-//         currentIndex: _currentIndex,
-//         onTap: (index) {
-//           setState(() {
-//             _currentIndex = index; // Mengubah halaman yang ditampilkan
-//           });
-//         },
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: Image.asset('assets/gempa1.png', width: 24, height: 24),
-//             label: 'Data Gempa',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Image.asset('assets/gempa2.png', width: 24, height: 24),
-//             label: 'Gempa Terkini',
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/About%20Page/AboutMe.dart';
 import 'package:flutter_application_1/Page%20gempa/PageGempaTerkini.dart';
 import 'package:flutter_application_1/Page%20gempa/page_gempa.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -69,8 +13,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0; // Indeks halaman saat ini
   final List<Widget> _pages = [
-    PageGempa(), // Halaman pertama
-    PageGempaTerkini(), // Halaman kedua
+    const PageGempa(), // Halaman pertama
+    const PageGempaTerkini(), // Halaman kedua
+    const AboutMe(), // Halaman ketiga
   ];
 
   void _onItemTapped(int index) {
@@ -86,12 +31,19 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Image.asset('assets/gempa1.png', width: 24, height: 24), // Gambar untuk Data Gempa
+            icon: Image.asset('assets/gempa1.png',
+                width: 24, height: 24), // Gambar untuk Data Gempa
             label: 'Data Gempa',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/gempa2.png', width: 24, height: 24), // Gambar untuk Gempa Terkini
+            icon: Image.asset('assets/gempa2.png',
+                width: 24, height: 24), // Gambar untuk Gempa Terkini
             label: 'Gempa Terkini',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/user.png',
+                width: 24, height: 24), // Gambar untuk About Me
+            label: 'About Me',
           ),
         ],
         currentIndex: _currentIndex, // Menandai item yang dipilih
@@ -102,5 +54,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
-

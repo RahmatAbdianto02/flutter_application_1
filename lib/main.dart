@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Aplikasi Saya',
       initialRoute: AppRoutesNamed.PageStarted, // Tentukan halaman awal
       getPages: [
@@ -26,13 +27,13 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: AppRoutesNamed.HomePage,
-          page: () => HomePage(), 
+          page: () => HomePage(),
         ),
       ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PageStarted(), 
+      home: PageStarted(),
     );
   }
 }
