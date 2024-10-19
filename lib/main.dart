@@ -26,13 +26,13 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: AppRoutesNamed.HomePage,
-          page: () => HomePage(), // Mengarahkan ke HomePage
+          page: () => HomePage(), 
         ),
       ],
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: PageStarted(), // Halaman login sebagai home
+      home: PageStarted(), 
     );
   }
 }

@@ -83,6 +83,8 @@ flutter:
     - assets/gempa1.png
     - assets/gempa2.png
     - assets/peringatan.png
+    - assets/password.png
+    - assets/register.png
     
     # - images/a_dot_ham.jpeg
 

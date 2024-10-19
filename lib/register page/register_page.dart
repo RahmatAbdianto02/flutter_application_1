@@ -31,7 +31,7 @@ class RegisterPage extends StatelessWidget {
                 height: 330,
                 decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage('assets/image_news_app.png'))),
+                        image: AssetImage('assets/register.png'))),
               ),
             ),
             SizedBox(height: 30),

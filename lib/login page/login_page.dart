@@ -25,10 +25,10 @@ class LoginPage extends StatelessWidget {
                 Center(
                   child: Container(
                     width: 200,
-                    height: 400,
+                    height: 200,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage('assets/deal.png'),
+                        image: AssetImage('assets/password.png'),
                         fit: BoxFit.cover,
                       ),
                     ),

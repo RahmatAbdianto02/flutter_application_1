@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/register%20page/register_page.dart';
 import 'package:flutter_application_1/routes/app_routes_named.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class PageStarted extends StatelessWidget {
@@ -22,15 +25,10 @@ class PageStarted extends StatelessWidget {
                         image: AssetImage('assets/peringatan.png'))),
               ),
               Text(
-                'TENTANG SULTENG',
+                'earthquake alert',
                 style: GoogleFonts.arimo(
                     fontSize: 21, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
-              ),
-              Text(
-                '\nDALAM GENGAMANMU',
-                style: GoogleFonts.arimo(
-                    fontSize: 21, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 70),
               SizedBox(
@@ -62,7 +60,9 @@ class PageStarted extends StatelessWidget {
                   onPressed: () {
                     // Navigasi ke halaman registrasi
                     // Navigator.pushNamed(context, AppRoutesNamed.RegisterPage);
-                    Navigator.pushNamed(context, AppRoutesNamed.RegisterPage);
+                    // Navigator.pushNamed(context, AppRoutesNamed.RegisterPage);
+                    // Get.to(() => RegisterPage());
+                    Get.to(() => RegisterPage());
                   },
                   child: Text(
                     'Sign up',
