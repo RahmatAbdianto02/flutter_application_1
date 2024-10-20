@@ -13,8 +13,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0; // Indeks halaman saat ini
   final List<Widget> _pages = [
-    const PageGempa(), // Halaman pertama
-    const PageGempaTerkini(), // Halaman kedua
+    PageGempa(), // Halaman pertama
+    PageGempaTerkini(), // Halaman kedua
     const AboutMe(), // Halaman ketiga
   ];
 

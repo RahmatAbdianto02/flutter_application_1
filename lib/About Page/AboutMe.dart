@@ -67,12 +67,12 @@ class _AboutMeState extends State<AboutMe> {
         children: [
           const SizedBox(height: 8),
           Text(
-            'John Doe',
+            'Rahmat Abdianto ',
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
           Text(
-            'Software Developer',
+            'Informatics engineering student',
             style: TextStyle(fontSize: 20, color: Colors.grey),
           ),
           const SizedBox(height: 16),

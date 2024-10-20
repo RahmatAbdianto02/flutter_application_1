@@ -1,32 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Service/GempaTerkiniService.dart';
-import 'package:flutter_application_1/user/model/GempaTerkiniModel.dart';
+import 'package:flutter_application_1/controller/gempa_terkini_controller.dart';
+import 'package:get/get.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 
-class PageGempaTerkini extends StatefulWidget {
-  const PageGempaTerkini({super.key});
-
-  @override
-  State<PageGempaTerkini> createState() => _PageGempaTerkiniState();
-}
-
-class _PageGempaTerkiniState extends State<PageGempaTerkini> {
-  GempaTerkiniModel? gempaTerkini;
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
-  getData() async {
-    gempaTerkini = await GempaTerkiniService().fetchGempaTerkini();
-    setState(() {}); // Memperbarui UI setelah data diambil
-  }
+class PageGempaTerkini extends StatelessWidget {
+  final GempaTerkiniController controller = Get.put(GempaTerkiniController());
 
   @override
   Widget build(BuildContext context) {
-    print("PageGempaTerkini loaded");
     return Scaffold(
       backgroundColor: const Color(0xFFF6EFBD),
       appBar: AppBar(
@@ -46,67 +28,72 @@ class _PageGempaTerkiniState extends State<PageGempaTerkini> {
         elevation: 0.0,
         backgroundColor: Colors.redAccent[400],
       ),
-      body: gempaTerkini == null
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Card(
-                elevation: 8,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            gempaTerkini!.wilayah,
-                            style: const TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
+      body: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          final gempaTerkini = controller.gempaTerkini.value;
+          return Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Card(
+              elevation: 8,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          gempaTerkini.wilayah,
+                          style: const TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
                           ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Tanggal: ${gempaTerkini!.tanggal}, Jam: ${gempaTerkini!.jam}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Magnitudo: ${gempaTerkini!.magnitude}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Kedalaman: ${gempaTerkini!.kedalaman}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Potensi: ${gempaTerkini!.potensi}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            'Dirasakan: ${gempaTerkini!.dirasakan}',
-                            style: const TextStyle(fontSize: 16),
-                          ),
-                          const SizedBox(height: 16),
-                          Image.network(
-                            'https://data.bmkg.go.id/DataMKG/TEWS/${gempaTerkini!.shakemap}',
-                            height: 200,
-                          ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Tanggal: ${gempaTerkini.tanggal}, Jam: ${gempaTerkini.jam}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Magnitudo: ${gempaTerkini.magnitude}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Kedalaman: ${gempaTerkini.kedalaman}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Potensi: ${gempaTerkini.potensi}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 16),
+                        Text(
+                          'Dirasakan: ${gempaTerkini.dirasakan}',
+                          style: const TextStyle(fontSize: 16),
+                        ),
+                        const SizedBox(height: 16),
+                        Image.network(
+                          'https://data.bmkg.go.id/DataMKG/TEWS/${gempaTerkini.shakemap}',
+                          height: 200,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
+          );
+        }
+      }),
     );
   }
 }
